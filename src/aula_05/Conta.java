@@ -3,7 +3,7 @@ package aula_05;
 //Classe abstract: Não podem ser instanciadas. Para instanciar, devemos criar primeiro uma classe filha não abstrata.
 public abstract class Conta {
 
-    private double saldo;
+    protected double saldo; //público para si e para os filhos
     private int agencia;
     private int numero;
     private Cliente titular;
@@ -26,9 +26,12 @@ public abstract class Conta {
 
     }
 
-    public void deposita(double valor) {
-        this.saldo = this.saldo + valor;
-    }
+//    public void deposita(double valor) {
+//        this.saldo = this.saldo + valor;
+//    }
+
+    //classes filhas deverão implementar esse método
+    public abstract void deposita(double valor);
 
     public boolean saca(double valor) {
         if(this.saldo >= valor) {
